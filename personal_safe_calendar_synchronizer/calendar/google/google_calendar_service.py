@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, time
+from datetime import datetime, timedelta, timezone, time
 from googleapiclient.discovery import build
 from personal_safe_calendar_synchronizer.model import CalendarEvent, GoogleCalendarEvent
 
@@ -11,7 +11,7 @@ class GoogleCalendarService:
         return build('calendar', 'v3', credentials=self.credentials)
 
     def list_events(self, calendar_id, max_results=10):
-        now = datetime.combine(datetime.now(), time(0, 0, 0))
+        now = datetime.combine(datetime.now(tz=timezone.utc), time(0, 0, 0))
         print(now, flush=True)
         start_of_week = now - timedelta(days=now.weekday())
         print(start_of_week, flush=True)

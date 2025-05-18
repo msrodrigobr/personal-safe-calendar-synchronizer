@@ -12,7 +12,9 @@
             "module": "flask",
             "env": {
                 "FLASK_APP": "personal_safe_calendar_synchronizer/app.py",
-                "FLASK_DEBUG": "1"
+                "FLASK_DEBUG": "1",
+                "CALENDAR_SYNC_CONFIG_PATH": "~/.config/calendar-sync/config.json",
+                "DISABLE_ENCRYPTION": "true",
             },
             "args": [
                 "run",
